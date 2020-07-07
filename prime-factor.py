@@ -1,11 +1,14 @@
 from sys import argv
-from os import system
+from os import system, get_terminal_size
 from math import sqrt
+from time import sleep
 
 number = int(argv[1])
+width = get_terminal_size().columns
 prime_numbers = []
 prime_factors = []
-_ = system('clear') 
+_ = system('clear')
+print() 
 
 def is_prime(n):
 	for i in range(2, n):
@@ -30,9 +33,16 @@ while True:
 		continue
 	
 	prime_factors.append(prime_numbers[i])
+	print("%2d  | %3d".center(width) % (prime_numbers[i], number))
+	sleep(1)																# This line is optional and changable
+	print("_________".center(width))
+	sleep(1)																# This line is optional and changable
 	number /= prime_numbers[i]
 	if number == 1:
 		break
+print("1".center(width))
+
+print("Answer ")
 
 i = len(prime_factors)
 j = 1
@@ -42,5 +52,5 @@ for k in prime_factors:
 		print(k)
 		break
 
-	print(k, end=" X ")
+	print(f"{k}", end=" X ")
 	j += 1

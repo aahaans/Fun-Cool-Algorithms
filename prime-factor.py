@@ -34,9 +34,9 @@ while True:
 	
 	prime_factors.append(prime_numbers[i])
 	print("%2d  | %3d".center(width) % (prime_numbers[i], number))
-	sleep(1)																# This line is optional and changable
+	sleep(1)											# This line is optional and changable
 	print("_________".center(width))
-	sleep(1)																# This line is optional and changable
+	sleep(1)											# This line is optional and changable
 	number /= prime_numbers[i]
 	if number == 1:
 		break
